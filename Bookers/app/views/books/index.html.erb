@@ -1,0 +1,52 @@
+<% if flash[:notice] %>
+  	<p><%= flash[:notice] %></p>
+<% end %>
+
+
+<h1>Books</h1>
+
+<table>
+
+<thead>
+
+<tr>
+<th>title</th>
+<th>body</th>
+<th></th>
+</tr>
+
+</thead>
+
+<tbody>
+	<% @books.each do |book| %>
+		<tr>
+			<td>
+				<%= book.title %>
+			</td>
+			<td>
+				<%= book.body %>
+			</td>
+			<td>
+				<%= link_to "show",book_path(book.id) %>
+				<%= link_to "edit",edit_book_path(book.id) %>
+				<%= link_to "destroy",book_path(book.id), method: :delete, "data-confirm" => "削除しますか？" %>
+			</td>
+		</tr>
+	<% end %>
+
+</tbody>
+</table>
+
+<h3>New Book</h3>
+  <!-- form_for -->
+    <%= form_for(@book) do |f| %>
+
+<h4>Title</h4>
+    <%= f.text_field :title %>
+
+<h4>Body</h4>
+    <%= f.text_area :body %>
+
+<br><%= f.submit "Create Book" %></br>
+
+<% end %>
