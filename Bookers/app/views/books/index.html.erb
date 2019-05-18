@@ -27,9 +27,9 @@
 				<%= book.body %>
 			</td>
 			<td>
-				<%= link_to "show",book_path(book.id), class: "show" %>
-				<%= link_to "edit",edit_book_path(book.id), class: "edit" %>
-				<%= link_to "destroy",book_path(book.id), class: "destroy", method: :delete, "data-confirm" => "削除しますか？" %>
+				<%= link_to "Show",book_path(book.id), class: "show_" + book.id.to_s %>
+				<%= link_to "Edit",edit_book_path(book.id), class: "edit_" + book.id.to_s %>
+				<%= link_to "Destroy",book_path(book.id), class: "destroy_" + book.id.to_s, method: :delete, "data-confirm" => "削除しますか？" %>
 			</td>
 		</tr>
 	<% end %>
