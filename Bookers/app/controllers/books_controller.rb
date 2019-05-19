@@ -8,7 +8,6 @@ class BooksController < ApplicationController
     # 記事を全件取得
         @books = Book.all
         @book = Book.new
-        @book = Book.find(params[:id])
   end
 
   def new
